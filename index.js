@@ -169,7 +169,7 @@ inquirer
         first_name: answer.firstName,
         last_name: answer.lastName,
         role_id: answer.roleId,
-        manager_id: managerId
+        manager_id: answer.managerId
         }, 
         function(err, res) {
             if (err) throw err;

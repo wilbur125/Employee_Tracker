@@ -23,11 +23,11 @@ VALUES
 INSERT INTO employee
     (first_name, last_name, role_id, manager_id)
 VALUES
-    ('Cindy', 'Test', 'Associate Scientist', NULL),
-    ('Leo', 'Freeman', 'Scientist', NULL),
-    ('Tania', 'Johnson', 'Senior Scientist', NULL),
-    ('George', 'Lucas', 'Senior Microbiologist', NULL),
-    ('Dan', 'Brown', 'Microbiologist', NULL),
-    ('Marge', 'Simpson', 'Associate Engineer', NULL),
-    ('Billy', 'Porter', 'Engineer', NULL),
-    ('Nina', 'Hall', 'Innovator', NULL);
+    ('Cindy', 'Test', 'Associate Scientist', 1),
+    ('Leo', 'Freeman', 'Scientist', 1),
+    ('Tania', 'Johnson', 'Senior Scientist', 1),
+    ('George', 'Lucas', 'Senior Microbiologist', 2),
+    ('Dan', 'Brown', 'Microbiologist', 2),
+    ('Marge', 'Simpson', 'Associate Engineer', 3),
+    ('Billy', 'Porter', 'Engineer', 3),
+    ('Nina', 'Hall', 'Innovator', 4);

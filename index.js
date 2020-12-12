@@ -79,7 +79,7 @@ function addDepts() {
         }, 
         function(err, res) {
             if (err) throw err;
-            console.log("The department was added successfully!");
+            console.log("\n\nThe department was added successfully!\n\n");
         runSearch();
       });
     });
@@ -89,13 +89,10 @@ function addRoles() {
     let query = "SELECT * FROM department";
     connection.query(query, function(err, results, fields) {
         if(err) throw error;
-        console.log("what does it look like?", results)
         let items = results;
-        console.log(items);    
         let deptChoices = items.map(function(item) {
             return item['name'];
         })
-        console.log("choices", deptChoices);
 
     inquirer
       .prompt([
@@ -125,7 +122,7 @@ function addRoles() {
           }, 
           function(err, res) {
               if (err) throw err;
-              console.log("The role was added successfully!");
+              console.log("\n\nThe role was added successfully!\n\n");
           runSearch();
         });
       });
@@ -137,13 +134,10 @@ function addEmployees() {
     let query = "SELECT * FROM role";
     connection.query(query, function(err, results, fields) {
         if(err) throw error;
-        console.log("what does it look like?", results)
         let items = results;
-        console.log(items);    
         let roleChoices = items.map(function(item) {
             return item['title'];
         })
-        console.log("choices", roleChoices);
 
 inquirer
     .prompt([
@@ -179,7 +173,7 @@ inquirer
         }, 
         function(err, res) {
             if (err) throw err;
-            console.log("The employee was added successfully!");
+            console.log("\n\nThe employee was added successfully!\n\n");
         runSearch();
     });
 });
@@ -195,7 +189,6 @@ function viewDepts(){
         console.table(results);
         console.log("-----------\n\n");
 
-        console.log("what does it look like?", results)
         runSearch();
     });
 }
@@ -229,25 +222,18 @@ function updateRoles() {
     let query = "SELECT * FROM employee";
     connection.query(query, function(err, results, fields) {
         if(err) throw error;
-        console.log("what does it look like?", results)
         let items = results;
-        console.log(items);    
         let employeeChoices = items.map(function(item) {
             return item["last_name"];
         })
-        console.log("choices", employeeChoices);
 
         let query = "SELECT * FROM role";
         connection.query(query, function(err, results, fields) {
         if(err) throw error;
-        console.log("what does it look like?", results)
         let items = results;
-        console.log(items);    
         let roleChoices = items.map(function(item) {
             return item['title'];
         })
-        console.log("choices", roleChoices);
-
 
     inquirer    
         .prompt([
@@ -266,14 +252,13 @@ function updateRoles() {
         ])
         .then(function(answer) {
             var query = `UPDATE employee SET role_id = '${answer.roleId}' WHERE last_name = '${answer.lastName}'`;
-            console.log(query);
             connection.query(query, { 
                 last_name: answer.lastName,
                 role_id: answer.roleId,
                 }, 
                 function(err, res) {
                     if (err) throw err;
-                    console.log("The employee's role was changed successfully!");
+                    console.log("\n\nThe employee's role was changed successfully!\n\n");
                 runSearch(); 
             });
         });

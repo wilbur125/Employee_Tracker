@@ -71,9 +71,9 @@ function addDepts() {
       message: "What department would you like to add?"
     })
     .then(function(answer) {
-      var query = "INSERT INTO departments SET ?";
+      var query = "INSERT INTO department SET ?";
       connection.query(query, { 
-          department_name: answer.department 
+          name: answer.department 
         }, 
         function(err, res) {
             if (err) throw err;
